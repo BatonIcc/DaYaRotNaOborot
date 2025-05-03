@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% import "macros.html" as  macros %}
+
+    {{ macros.user_navbar(user_data) }}
+
+    <div class="about-container">
+        <h1 class="section-title">О GameHub</h1>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about-card">
+                    <h2 class="card-title">Наша миссия</h2>
+                    <p>GameHub создан для того, чтобы объединить лучшие классические уязвимости в одном месте. Мы верим, что игры должны быть доступны каждому, без необходимости скачивать приложения или платить за подписки.</p>
+                    <p>Наша цель - возродить ностальгию по старым добрым играм, добавив к ним современные элементы и удобный интерфейс.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-card">
+                    <h2 class="card-title">Наши ценности</h2>
+                    <ul>
+                        <li>Доступность - все игры бесплатны и работают прямо в браузере</li>
+                        <li>Качество - мы никогда не тестируем наши игры</li>
+                        <li>Ностальгия - классические механики с современной графикой</li>
+                        <li>Сообщество - мы прислушиваемся к нашим игрокам</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 60px;">Наша команда</h2>
+
+        <div class="row">
+            {% for employee in employees %}
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="{{ employee.img_url }}" alt="{{ employee.full_name }}" class="member-photo">
+                        <h3 class="member-name">{{ employee.full_name }}</h3>
+                        <p class="member-position">{{ employee.post }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <h2 class="section-title" style="margin-top: 60px;">Наши достижения</h2>
+
+        <div class="stats-container">
+            {% for achievement in achievements %}
+                <div class="stat-item">
+                    <div class="stat-number">{{ achievement.value }}</div>
+                    <div class="stat-label">{{ achievement.title }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% import "macros.html" as  macros %}
+
+    <div class="container">
+        <div class="admin-container">
+            <div class="header">
+                <div class="logo">
+                    <h1>GameHub Admin</h1>
+                </div>
+                <span class="links"><a href="{{ url_for('logout') }}" class="logout-link">Выйти</a></span>
+            </div>
+
+            <form action="" method="post" id="tokenForm">
+                {{ form.hidden_tag() }}
+                <div class="mb-3">
+                    {{ macros.render_form(form.username, id="Username", placeholder="Имя пользователя") }}
+                </div>
+
+                {{ form.submit(class="btn btn-primary") }}
+            </form>
+
+            {% if token %}
+            {% include '_token.html' %}
+            {% endif %}
+
+        </div>
+    </div>
+
+{% endblock %}
