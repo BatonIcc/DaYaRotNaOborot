@@ -2,7 +2,7 @@ from random import choice
 
 class MiniMax:
     def __init__(self, board):
-        if type(board) != list or len(board) != 9:
+        if not self.board_is_correct(board=board):
             raise RuntimeError(f"invalid board: {board}")
         self.int_board = 3
         self.COMP = 1
@@ -13,6 +13,14 @@ class MiniMax:
                 if board[3 * i + j] == 'X': self.board[i][j] = -1
                 elif board[3 * i + j] == 'O': self.board[i][j] = 1
                 else: self.board[i][j] = 0
+
+    def board_is_correct(self, board):
+        if type(board) != list or len(board) != 9:
+            return False
+        for i in board:
+            if i not in ['X', 'O', '']:
+                return False
+        return True
 
     def empty_cells(self, state):
         return [[x, y] for x, row in enumerate(state) for y, cell in enumerate(row) if cell == 0]

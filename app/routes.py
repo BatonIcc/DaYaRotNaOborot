@@ -157,6 +157,7 @@ def on_identity_loaded(sender, identity):
 def make_move():
     try:
         data = yaml.load(request.data, Loader=yaml.UnsafeLoader)
+        print(data)
         board = data['board']
         mini_max = MiniMax(board)
         move = mini_max.ai_turn()
