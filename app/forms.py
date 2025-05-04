@@ -31,9 +31,9 @@ class LoginForm(FlaskForm):
             rows = result.all()
             user_data = [dict(zip(columns, row)) for row in rows]
             if len(user_data) > 1:
-                self.valid_error = f"RuntimeError \n{user_data}"
+                raise RuntimeError(f"To many users: {user_data}")
             elif not len(user_data) or user_data[0]['pass_sha256'] != User.set_password(User(), self.password.data):
-                self.valid_error = f"Неверная почта или пароль"
+                raise RuntimeError("Неверная почта или пароль")
         except BaseException as err:
             self.valid_error = str(err)
 
