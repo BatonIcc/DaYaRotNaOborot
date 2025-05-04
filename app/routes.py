@@ -157,11 +157,10 @@ def on_identity_loaded(sender, identity):
 def make_move():
     try:
         data = yaml.load(request.data, Loader=yaml.UnsafeLoader)
-        print(data)
         board = data['board']
         mini_max = MiniMax(board)
         move = mini_max.ai_turn()
-        return jsonify({'move': move})
+        return jsonify({'move': board})
 
     except Exception as e:
         return jsonify({'error': str(e), 'move': None})
