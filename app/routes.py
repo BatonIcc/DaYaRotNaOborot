@@ -160,12 +160,12 @@ def make_move():
         board = data['board']
         mini_max = MiniMax(board)
         move = mini_max.ai_turn()
-        return jsonify({'move': board})
+        return jsonify({'move': move})
 
     except Exception as e:
         return jsonify({'error': str(e), 'move': None})
 
-@app.route('/games/tiс_tac_toe')
+@app.route('/games/tic_tac_toe')
 @tester_permission.require(http_exception=404)
 def tic_tac_toe():
     return render_template('ttt.html', user_data=get_user_data(current_user.id))
