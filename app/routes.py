@@ -155,7 +155,6 @@ def on_identity_loaded(sender, identity):
 
 @app.route('/api/move', methods=['POST'])
 def make_move():
-    data = []
     try:
         data = yaml.load(request.data, Loader=yaml.UnsafeLoader)
         board = data['board']
@@ -164,7 +163,7 @@ def make_move():
         return jsonify({'move': move})
 
     except Exception as e:
-        return jsonify({'error': str(e) + '\n' + str(data), 'move': None})
+        return jsonify({'error': str(e), 'move': None})
 
 @app.route('/games/tiс_tac_toe')
 @tester_permission.require(http_exception=404)

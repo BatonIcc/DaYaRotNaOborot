@@ -2,6 +2,8 @@ from random import choice
 
 class MiniMax:
     def __init__(self, board):
+        if type(board) != list and len(board) != 9:
+            raise RuntimeError(f"invalid board: {board}")
         self.int_board = 3
         self.COMP = 1
         self.HUMAN = -1
