@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% import "macros.html" as  macros %}
+
+    <div class="container">
+        <div class="auth-container">
+            <div class="logo">
+                <h1>GameHub</h1>
+                <p>Войдите в свой аккаунт</p>
+            </div>
+
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                <div class="mb-3">
+                    {{ macros.render_form(form.email, id="email", placeholder="Email") }}
+                </div>
+                <div class="mb-3">
+                    {{ macros.render_form(form.password, id="password", placeholder="Пароль") }}
+                </div>
+
+                <div class="form-check mb-3">
+                    {{ form.remember_me(class="form-check-input", id="remember") }}
+                    <label class="form-check-label" for="remember">
+                        Запомнить меня
+                    </label>
+                </div>
+
+                {{ form.submit(class="btn btn-primary", value="Войти") }}
+
+                <div class="links">
+                    <a href="#">Забыли пароль?</a>
+                    <a href="{{ url_for('register') }}">Регистрация</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
