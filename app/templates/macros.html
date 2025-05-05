@@ -57,14 +57,14 @@
 {% endmacro %}
 
 
-{% macro render_form(form, id=None, placeholder=None, correct=False) %}
+{% macro render_form(form, id=None, placeholder=None, correct=False, type="password") %}
 
     {% if form.errors %}
-    {{ form(class="form-control is-invalid", placeholder=placeholder) }}
+    {{ form(class="form-control is-invalid", placeholder=placeholder, type=type) }}
     {% elif correct %}
-    {{ form(class="form-control is-valid", placeholder=placeholder) }}
+    {{ form(class="form-control is-valid", placeholder=placeholder, type=type) }}
     {% else %}
-    {{ form(class="form-control", placeholder=placeholder) }}
+    {{ form(class="form-control", placeholder=placeholder, type=type) }}
     {% endif %}
     {% for error in form.errors %}
     <div class="invalid-feedback" id=id>{{ error }}</div>

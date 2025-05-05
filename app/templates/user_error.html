@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% import "macros.html" as  macros %}
+
+    <div class="container">
+        <div class="error-container">
+            <div class="logo">
+                <h1>GameHub</h1>
+            </div>
+
+            <div class="error-code">40</div>
+            <div class="error-message">Issue is 40cm away from screen</div>
+            <div class="error-description">
+                Ничем не можем помочь
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <a href="{{ url_for('index') }}" class="btn btn-primary">На главную</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

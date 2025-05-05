@@ -14,11 +14,11 @@
             <form action="" method="post" id="registerForm">
                 {{ form.hidden_tag() }}
                 <div class="mb-3">
-                    {{ macros.render_form(form.email, id="email", placeholder="Email") }}
+                    {{ macros.render_form(form.email, id="email", placeholder="Email", type="text") }}
                 </div>
 
                 <div class="mb-3">
-                    {{ macros.render_form(form.username, id="username", placeholder="Имя пользователя") }}
+                    {{ macros.render_form(form.username, id="username", placeholder="Имя пользователя", type="text") }}
                 </div>
 
                 <div class="mb-3">

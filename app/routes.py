@@ -140,6 +140,10 @@ def profile():
     return render_template('profile.html', token_form=token_form, password_form=password_form,
                            username_form=username_form, user_data=get_user_data(current_user.id))
 
+@app.route('/user_error')
+def user_error():
+    return render_template('user_error.html')
+
 @app.route('/logout')
 def logout():
     logout_user()
