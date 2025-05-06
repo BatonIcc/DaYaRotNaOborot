@@ -6,7 +6,7 @@
         <a href="{{ url }}" class="game-card">
             {% if game.early %}
             <div class="early-access-badge">Ранний доступ</div>
-            {% else %}
+            {% elif game.url == '#' %}
             <div class="early-access-badge">Скоро выйдет</div>
             {% endif %}
             <img src="{{ game.img_url }}" class="game-img" alt="{{ game.game_title }}">

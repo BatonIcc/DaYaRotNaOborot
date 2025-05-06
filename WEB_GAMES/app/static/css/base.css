@@ -9,6 +9,7 @@
     --error-color: #ff4b2b;
     --x-color: #ff4d4d;
     --o-color: #00d2ff;
+    --cell-border: rgba(255, 255, 255, 0.1);
 }
 
 body {
@@ -760,6 +761,20 @@ body {
     padding: 20px;
 }
 
+.tetris-board {
+    position: relative;
+    width: 300px;
+    height: 600px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background-color: rgba(15, 32, 39, 0.4);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-rows: repeat(20, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    overflow: hidden;
+}
+
 .game-title-page {
     font-size: 2.5rem;
     font-weight: 700;
@@ -769,6 +784,23 @@ body {
     background-clip: text;
     color: transparent;
     text-align: center;
+}
+
+.game-title-page {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, white, var(--accent-green));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+.game-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
 }
 
 .game-board {
@@ -812,8 +844,66 @@ body {
     color: var(--o-color);
 }
 
+.cell_ttt {
+    border: 1px solid var(--cell-border);
+    box-sizing: border-box;
+}
+
+.cell_ttt.filled {
+    background-color: var(--accent-green);
+    box-shadow: inset 0 0 10px rgba(0, 210, 255, 0.7);
+}
+
+.cell_ttt.I { background-color: #00d2ff; }
+.cell_ttt.O { background-color: #3a7bd5; }
+.cell_ttt.T { background-color: #a8ff78; }
+.cell_ttt.S { background-color: #78ffd6; }
+.cell_ttt.Z { background-color: #f8ff78; }
+.cell_ttt.J { background-color: #ff8c78; }
+.cell_ttt.L { background-color: #ff78b7; }
+
 .winning-cell {
     animation: pulse 1s infinite alternate;
+}
+
+.game_ttt-info {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-panel {
+    background-color: rgba(15, 32, 39, 0.6);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+.info-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--accent-green);
+}
+
+.next-piece .cell_ttt {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+
+.next-piece {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.info-value {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .game-info {
@@ -916,6 +1006,11 @@ body {
     text-align: center;
 }
 
+.game-over p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
 .game-over .winner {
     font-size: 3rem;
     font-weight: bold;
@@ -939,6 +1034,54 @@ body {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+}
+
+.mobile-controls {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+}
+
+.mobile-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mobile-btn:active {
+    background-color: rgba(0, 210, 255, 0.3);
+    transform: scale(0.95);
+}
+
+.mobile-btn.rotate {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.mobile-btn.left {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.mobile-btn.right {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.mobile-btn.down {
+    grid-column: 2;
+    grid-row: 3;
 }
 
 .mode-btn {
@@ -1062,6 +1205,34 @@ footer {
     .game-info {
         width: 280px;
         font-size: 1rem;
+    }
+
+    .game-title {
+        font-size: 2rem;
+    }
+
+    .game-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tetris-board {
+        width: 250px;
+        height: 500px;
+    }
+
+    .game_ttt-info {
+        width: 250px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .info-panel {
+        width: 48%;
+    }
+
+    .mobile-controls {
+        display: grid;
     }
 }
 

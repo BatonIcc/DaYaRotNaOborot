@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <script src="{{ url_for('static', filename='js/tetris.js') }}"></script>
+
+    {% import "macros.html" as  macros %}
+
+    {{ macros.user_navbar(user_data) }}
+
+    <div class="game-container">
+        <h1 class="ggame-title-page">Тетрис</h1>
+        
+        <div class="game-wrapper">
+            <div class="tetris-board" id="tetrisBoard">
+                <div class="game-over" id="gameOver">
+                    <h2>Игра окончена!</h2>
+                    <p id="finalScore">Ваш счет: 0</p>
+                    <button class="btn btn-primary" id="restartBtn">Играть снова</button>
+                </div>
+            </div>
+            
+            <div class="game_ttt-info">
+                <div class="info-panel">
+                    <div class="info-title">Счет</div>
+                    <div class="info-value" id="score">0</div>
+                </div>
+                
+                <div class="info-panel">
+                    <div class="info-title">Уровень</div>
+                    <div class="info-value" id="level">1</div>
+                </div>
+                
+                <div class="info-panel">
+                    <div class="info-title">Следующая</div>
+                    <div class="next-piece" id="nextPiece"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mobile-controls">
+            <button class="mobile-btn rotate" id="rotateBtn">↻</button>
+            <button class="mobile-btn left" id="leftBtn">←</button>
+            <button class="mobile-btn right" id="rightBtn">→</button>
+            <button class="mobile-btn down" id="downBtn">↓</button>
+        </div>
+        
+        <div class="controls">
+            <button class="btn btn-primary" id="startBtn">Начать игру</button>
+            <button class="btn btn-outline" id="pauseBtn">Пауза</button>
+        </div>
+    </div>
+
+{% endblock %}

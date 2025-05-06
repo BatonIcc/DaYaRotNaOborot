@@ -174,6 +174,11 @@ def make_move():
 def tic_tac_toe():
     return render_template('ttt.html', user_data=get_user_data(current_user.id))
 
+@app.route('/games/tetris')
+@user_permission.require(http_exception=404)
+def tetris():
+    return render_template('tetris.html', user_data=get_user_data(current_user.id))
+
 def get_user_data(id):
     user = User.query.get(id)
     return {
