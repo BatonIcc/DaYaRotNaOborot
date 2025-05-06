@@ -179,6 +179,12 @@ def tic_tac_toe():
 def tetris():
     return render_template('tetris.html', user_data=get_user_data(current_user.id))
 
+@app.route('/games/minesweeper')
+@user_permission.require(http_exception=404)
+def minesweeper():
+    return render_template('minesweeper.html', user_data=get_user_data(current_user.id))
+
+
 def get_user_data(id):
     user = User.query.get(id)
     return {
