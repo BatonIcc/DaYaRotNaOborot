@@ -1,0 +1,13 @@
+<script src="{{ url_for('static', filename='js/token.js') }}"></script>
+<div class="token-container" id="tokenContainer">
+    <div class="token-header">
+        <h3 class="token-title">Токен доступа</h3>
+    </div>
+    <div class="game-info">Для пользователя: {{ token.username }}</div>
+    <p>Действителен 10 минут</p>
+    <div class="token-value" id="tokenValue">
+        <span id="tokenText">{{ token.token }}</span>
+        <div class="copy-success" id="copySuccess">Скопировано!</div>
+    </div>
+    <button class="copy-btn" id="copyBtn">Копировать токен</button>
+</div>

@@ -1,0 +1,6 @@
+WEB_GAMES/venv/
+WEB_GAMES/__pycache__/
+.idea/
+WEB_GAMES/.flaskenv
+WEB_GAMES/app/__pycache__/
+WEB_GAMES/migrations/

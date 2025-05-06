@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:5000"
+    environment:
+      - FLAG=lctf{g4me_1s_w0n_H4ck_th3_pl4n3t}
+      - SECRET_KEY=x0jMX$h[wM~&dk8$_&._YiXW%pX9*6
+    restart: unless-stopped
