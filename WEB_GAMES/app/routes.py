@@ -184,6 +184,10 @@ def tetris():
 def minesweeper():
     return render_template('minesweeper.html', user_data=get_user_data(current_user.id))
 
+@app.route('/games/2048')
+@user_permission.require(http_exception=404)
+def g2048():
+    return render_template('2048.html', user_data=get_user_data(current_user.id))
 
 def get_user_data(id):
     user = User.query.get(id)

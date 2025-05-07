@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <script src="{{ url_for('static', filename='js/2048.js') }}"></script>
+
+    {% import "macros.html" as  macros %}
+
+    {{ macros.user_navbar(user_data) }}
+
+    <div class="game-container">
+        <h1 class="game-title-page">2048</h1>
+
+        <div class="game-header">
+            <div class="score-container">
+                <div class="score-title">Счет</div>
+                <div class="score-value" id="score">0</div>
+            </div>
+            <div class="score-container">
+                <div class="score-title">Рекорд</div>
+                <div class="score-value" id="best-score">0</div>
+            </div>
+        </div>
+
+        <div class="game-board-2048" id="gameBoard">
+            <div class="game-over" id="gameOver">
+                <h2>Игра окончена!</h2>
+                <p id="final-score">Ваш счет: 0</p>
+                <button class="btn btn-primary" id="restartBtn">Играть снова</button>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" id="newGameBtn">Новая игра</button>
+        </div>
+    </div>
+
+{% endblock %}
