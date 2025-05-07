@@ -189,6 +189,11 @@ def minesweeper():
 def g2048():
     return render_template('2048.html', user_data=get_user_data(current_user.id))
 
+@app.route('/games/snake')
+@user_permission.require(http_exception=404)
+def snake():
+    return render_template('snake.html', user_data=get_user_data(current_user.id))
+
 def get_user_data(id):
     user = User.query.get(id)
     return {
