@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <script src="{{ url_for('static', filename='js/flappy_bird.js') }}"></script>
+
+    {% import "macros.html" as  macros %}
+
+    {{ macros.user_navbar(user_data) }}
+
+    <div class="game-container">
+        <h1 class="game-title">Flappy Bird</h1>
+
+        <div class="game-board-fb" id="gameBoard">
+            <div class="ground"></div>
+            <div class="start-screen" id="startScreen">
+                <h2>Flappy Bird</h2>
+                <button class="btn btn-primary" id="startBtn">Начать игру</button>
+                <div class="tap-to-start">Нажмите пробел или кликните, чтобы прыгать</div>
+            </div>
+            <div class="game-over" id="gameOver">
+                <h2>Игра окончена!</h2>
+                <p id="finalScore">Ваш счет: 0</p>
+                <button class="btn btn-primary" id="restartBtn">Играть снова</button>
+            </div>
+        </div>
+
+        <div class="game-header">
+            <div class="score-container">
+                <div class="score-title">Счет</div>
+                <div class="score-value" id="score">0</div>
+            </div>
+            <div class="score-container">
+                <div class="score-title">Рекорд</div>
+                <div class="score-value" id="highScore">0</div>
+            </div>
+        </div>
+
+        <div class="mobile-controls">
+            <button class="jump-btn" id="jumpBtn">↑</button>
+        </div>
+    </div>
+
+{% endblock %}

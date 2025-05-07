@@ -194,6 +194,11 @@ def g2048():
 def snake():
     return render_template('snake.html', user_data=get_user_data(current_user.id))
 
+@app.route('/games/flappy_bird')
+@user_permission.require(http_exception=404)
+def flappy_bird():
+    return render_template('flappy_bird.html', user_data=get_user_data(current_user.id))
+
 def get_user_data(id):
     user = User.query.get(id)
     return {
